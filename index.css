@@ -1,0 +1,185 @@
+body {
+  font-family: monospace, "Courier New", Courier;
+  font-size: 18px;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #1e1d22;
+  color: #eeeeee;
+  line-height: 1.5;
+}
+
+.buttonConnectMetamask {
+  background-color: #1e1d22;
+  color: #7d86ea;
+  border: 2px solid #7d86ea;
+  padding: 20px 40px; /* Same padding as other buttons */
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 20px; /* Same font size as other buttons */
+  cursor: pointer;
+  margin: 10px 0;
+  border-radius: 10px;
+  position: absolute; /* Position the MetaMask button absolutely */
+  top: 20px; /* Adjust top position */
+  right: 20px; /* Adjust right position */
+}
+
+.buttonConnectMetamask:hover {
+  background-color: #7d86ea;
+  color: #1e1d22;
+}
+
+.btn {
+  background-color: #1e1d22;
+  color: #7d86ea;
+  border: 2px solid #7d86ea;
+  padding: 20px 40px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 20px;
+  cursor: pointer;
+  margin: 10px 0;
+  border-radius: 10px;
+}
+
+.btn:hover {
+  background-color: #7d86ea;
+  color: #1e1d22;
+}
+
+.buttonHighContrast {
+  background-color: #1e1d22;
+  color: #ffffff;
+  border: 2px solid #ffffff;
+  border-radius: 10px;
+}
+
+.buttonHighContrast:hover {
+  background-color: #ffffff;
+  color: #1e1d22;
+}
+
+input[type="text"],
+input[type="datetime-local"] {
+  width: 60%;
+  max-width: 500px;
+  padding: 15px;
+  margin: 10px 0;
+  box-sizing: border-box;
+  font-size: 18px;
+  text-align: center;
+  border: 2px solid #ffffff;
+  border-radius: 5px;
+  background-color: #1e1d22;
+  color: #ffffff;
+}
+
+input[type="text"]::placeholder,
+input[type="datetime-local"]::placeholder {
+  color: #ffffff;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 20px;
+  box-sizing: border-box;
+  max-width: 100%;
+  position: relative; /* To contain the absolutely positioned button */
+}
+
+.content {
+  max-width: 700px; /* Limit the width of the content */
+  width: 100%;
+  text-align: left; /* Align text to the left */
+}
+
+h1 {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: bold;
+  color: #7d86ea; /* Green color for headers */
+  font-size: 36px; /* Larger font size for main header */
+  margin-bottom: 20px;
+}
+
+h2 {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: bold;
+  color: #7d86ea;
+  font-size: 24px; /* Smaller font size for subheader */
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+h3 {
+  font-size: 20px;
+  color: #7d86ea;
+}
+
+.goal {
+  border: 1px solid #ffffff;
+  padding: 15px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  text-align: left; /* Ensure text is aligned to the left */
+}
+
+.button-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+  gap: 10px; /* Add space between buttons */
+}
+
+p {
+  margin-bottom: 15px; /* Add more space between paragraphs */
+}
+
+ol {
+  padding-left: 20px; /* Add padding to the left for indentation */
+}
+
+ol li {
+  margin-bottom: 10px; /* Add margin to the bottom of each list item for spacing */
+}
+
+.button-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.section {
+  margin: 20px 0;
+  text-align: center;
+  width: 100%;
+}
+
+.footer {
+  text-align: center;
+  padding: 10px;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: #1e1d22;
+  color: #eeeeee;
+  font-size: 14px;
+}
+
+.footer a {
+  color: #7d86ea;
+  text-decoration: none;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+}

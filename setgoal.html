@@ -1,0 +1,68 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+  <head>
+    <title>Set a New Goal</title>
+    <link rel="shortcut icon" type="png" href="favicon.ico" />
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+    <meta content="utf-8" http-equiv="encoding" />
+    <link rel="stylesheet" href="index.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="content">
+        <h1>Ether Goals</h1>
+        <h2>Set a New Goal</h2>
+        <p>
+          Connect your MetaMask wallet, set your goal, pick a completion date,
+          stake ETH and choose a validator to verify your goal completion.
+        </p>
+        <button class="btn buttonConnectMetamask" id="enableEthereumButton">
+          Connect Wallet
+        </button>
+        <input
+          type="text"
+          id="goalDescription"
+          placeholder="Goal Description"
+        />
+        <input
+          type="datetime-local"
+          id="goalDeadline"
+          placeholder="When would you like to achieve this by?"
+        />
+        <input
+          type="text"
+          id="goalValidator"
+          placeholder="Validator Address (0x...)"
+          style="text-align: center"
+        />
+        <input
+          type="text"
+          id="goalAmount"
+          placeholder="Deposit Amount in ETH"
+          style="text-align: center"
+        />
+        <button id="setGoalButton" class="btn buttonHighContrast">
+          Set Goal
+        </button>
+        <p>
+          Once you have completed your goal, your validator will approve it, and
+          you will get your ETH back. If you fail to complete your goal, your
+          staked ETH will be burnt.
+        </p>
+        <div id="automatedMessage" style="margin-top: 20px"></div>
+      </div>
+    </div>
+    <!-- ethers.js library import -->
+    <script
+      src="https://cdn.ethers.io/lib/ethers-5.6.umd.min.js"
+      type="text/javascript"
+    ></script>
+    <!-- Javascript for this page source -->
+    <script src="metaMask.js"></script>
+    <script src="setgoal.js"></script>
+    <footer class="footer">
+      <p>Built by <a href="https://teji.io" target="_blank">TEJI</a></p>
+    </footer>
+  </body>
+</html>

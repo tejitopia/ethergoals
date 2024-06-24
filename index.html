@@ -1,0 +1,75 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+  <head>
+    <title>Ether Goals</title>
+    <link rel="shortcut icon" type="png" href="favicon.ico" />
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+    <meta content="utf-8" http-equiv="encoding" />
+    <link rel="stylesheet" href="index.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap"
+      rel="stylesheet"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  </head>
+  <body>
+    <div class="container">
+      <button class="buttonConnectMetamask" id="enableEthereumButton">
+        Connect Wallet
+      </button>
+      <div class="content">
+        <h1>Ether Goals</h1>
+
+        <p>
+          Welcome to Ether Goals, your decentralized platform for setting and
+          achieving goals with the power of Ethereum.
+        </p>
+
+        <h2>How it works:</h2>
+        <ol>
+          <li>Set a goal and stake your ETH.</li>
+          <li>Choose a friend to validate your goal off-chain.</li>
+          <li>If you complete your goal, your friend approves it.</li>
+          <li>
+            If approved, you get your ETH back. Otherwise, your staked ETH will
+            be burnt.
+          </li>
+        </ol>
+
+        <p>Would you like to approve or create an onchain goal?</p>
+
+        <div class="button-container">
+          <button
+            class="btn buttonHighContrast"
+            onclick="window.location.href='setgoal.html'"
+          >
+            Create a Goal
+          </button>
+
+          <button
+            class="btn buttonHighContrast"
+            onclick="window.location.href='approve.html'"
+          >
+            Approve a Goal
+          </button>
+        </div>
+
+        <p>
+          <em>Note:</em> If you are unable to complete your goal, your eth will
+          be unnable to be recovered
+        </p>
+      </div>
+    </div>
+    <!-- ethers.js library import -->
+    <script
+      src="https://cdn.ethers.io/lib/ethers-5.6.umd.min.js"
+      type="text/javascript"
+    ></script>
+    <!-- Javascript for this page source -->
+    <script src="metaMask.js"></script>
+    <!-- MetaMask connection script -->
+    <footer class="footer">
+      <p>Built by <a href="https://teji.io" target="_blank">TEJI</a></p>
+    </footer>
+  </body>
+</html>
