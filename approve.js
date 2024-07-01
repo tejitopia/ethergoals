@@ -41,7 +41,9 @@ async function fetchGoals() {
   console.log("golas:",goals)
   goalsList.innerHTML = "";
 
-  goals.forEach((index, goal) => {
+  goals.forEach(( goal) => {
+
+    console.log('goal:', goal, index)
     const goalContainer = document.createElement("div");
     goalContainer.className = "goal";
 
@@ -74,13 +76,13 @@ async function fetchGoals() {
     const approveButton = document.createElement("button");
     approveButton.className = "btn buttonHighContrast";
     approveButton.textContent = "Yes";
-    approveButton.onclick = () => validateGoal(index, true);
+    approveButton.onclick = () => validateGoal(0, true);
     buttonContainer.appendChild(approveButton);
 
     const declineButton = document.createElement("button");
     declineButton.className = "btn buttonHighContrast";
     declineButton.textContent = "No";
-    declineButton.onclick = () => validateGoal(index, false);
+    declineButton.onclick = () => validateGoal(0, false);
     buttonContainer.appendChild(declineButton);
 
     const supportButton = document.createElement("button");
