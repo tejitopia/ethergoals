@@ -41,9 +41,10 @@ async function fetchGoals() {
   console.log("golas:",goals)
   goalsList.innerHTML = "";
 
-  goals.forEach(( goal) => {
+  for (let index = 0; index < goals.length; index++) {
+    const goal = goals[index];
+    console.log('goal:', goal, index)
 
-    // console.log('goal:', goal, index)
     const goalContainer = document.createElement("div");
     goalContainer.className = "goal";
 
@@ -76,13 +77,13 @@ async function fetchGoals() {
     const approveButton = document.createElement("button");
     approveButton.className = "btn buttonHighContrast";
     approveButton.textContent = "Yes";
-    approveButton.onclick = () => validateGoal(0, true);
+    approveButton.onclick = () => validateGoal(index, true);
     buttonContainer.appendChild(approveButton);
 
     const declineButton = document.createElement("button");
     declineButton.className = "btn buttonHighContrast";
     declineButton.textContent = "No";
-    declineButton.onclick = () => validateGoal(0, false);
+    declineButton.onclick = () => validateGoal(index, false);
     buttonContainer.appendChild(declineButton);
 
     const supportButton = document.createElement("button");
@@ -93,7 +94,60 @@ async function fetchGoals() {
 
     goalContainer.appendChild(buttonContainer);
     goalsList.appendChild(goalContainer);
-  });
+  }
+  // goals.forEach(( goal) => {
+
+  //   // console.log('goal:', goal, index)
+  //   const goalContainer = document.createElement("div");
+  //   goalContainer.className = "goal";
+
+  //   const goalHeader = document.createElement("h3");
+  //   goalHeader.textContent = goal.description;
+  //   goalContainer.appendChild(goalHeader);
+
+  //   const goalDetailsAmount = document.createElement("p");
+  //   goalDetailsAmount.textContent = `Amount Staked: ${(goal.amount / 10 ** 18)} ETH`;
+  //   goalContainer.appendChild(goalDetailsAmount);
+
+  //   const goalDetailsDeadline = document.createElement("p");
+
+  //   console.log('goal.deadline:', goal.deadline._hex)
+  //   const timeStamp = parseInt(goal.deadline._hex, 16);
+  //   console.log('timeStamp:', timeStamp)
+  //   goalDetailsDeadline.textContent = `Deadline: ${new Date(
+  //     timeStamp * 1000
+  //   ).toLocaleString()}`;
+
+  //   goalContainer.appendChild(goalDetailsDeadline);
+
+  //   const goalQuestion = document.createElement("p");
+  //   goalQuestion.textContent = "Has your friend completed their goal?";
+  //   goalContainer.appendChild(goalQuestion);
+
+  //   const buttonContainer = document.createElement("div");
+  //   buttonContainer.className = "button-container";
+
+  //   const approveButton = document.createElement("button");
+  //   approveButton.className = "btn buttonHighContrast";
+  //   approveButton.textContent = "Yes";
+  //   approveButton.onclick = () => validateGoal(0, true);
+  //   buttonContainer.appendChild(approveButton);
+
+  //   const declineButton = document.createElement("button");
+  //   declineButton.className = "btn buttonHighContrast";
+  //   declineButton.textContent = "No";
+  //   declineButton.onclick = () => validateGoal(0, false);
+  //   buttonContainer.appendChild(declineButton);
+
+  //   const supportButton = document.createElement("button");
+  //   supportButton.className = "btn buttonHighContrast";
+  //   supportButton.textContent = "Support";
+  //   supportButton.onclick = () => supportGoal(goal.id);
+  //   buttonContainer.appendChild(supportButton);
+
+  //   goalContainer.appendChild(buttonContainer);
+  //   goalsList.appendChild(goalContainer);
+  // });
 }
 
 function validateGoal(goalId, isCompleted) {
@@ -108,7 +162,7 @@ function validateGoal(goalId, isCompleted) {
    
     try {
       console.log('yes')
-      const tx = contractWithSigner.approveGoal(owner_address, 0);
+      const tx = contractWithSigner.approveGoal(owner_address, goalId);
       alert("Goal marked as completed");
     } catch (error) {
       console.error(error);
@@ -122,7 +176,7 @@ function validateGoal(goalId, isCompleted) {
    
     try {
       console.log('No')
-      const tx = contractWithSigner.denyGoal(owner_address, 0);
+      const tx = contractWithSigner.denyGoal(owner_address, goalId);
       alert("Denied goal");
     } catch (error) {
       console.error(error);
