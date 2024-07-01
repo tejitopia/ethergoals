@@ -1,3 +1,4 @@
+import { contractABI_JS } from "./Accountability_ABI.js";
 detectMetamaskInstalled(); // When the page is opened check for error handling issues.
 
 let accounts = []; // Empty array to be filled once Metamask is called.
@@ -8,71 +9,7 @@ const sepoliaChainId = 11155111;
 
 const provider = new ethers.providers.Web3Provider(window.ethereum);
 
-const contractAddress_JS = "0xBBE97Afb978E19033e0BDa692E6034F5b3B91312";
-const contractABI_JS = [
-  {
-    anonymous: false,
-    inputs: [],
-    name: "setEvent",
-    type: "event",
-  },
-  {
-    inputs: [
-      {
-        internalType: "string",
-        name: "_description",
-        type: "string",
-      },
-      {
-        internalType: "uint256",
-        name: "_deadline",
-        type: "uint256",
-      },
-      {
-        internalType: "address",
-        name: "_validator",
-        type: "address",
-      },
-    ],
-    name: "setGoal",
-    outputs: [],
-    stateMutability: "payable",
-    type: "function",
-  },
-  {
-    inputs: [],
-    name: "completeGoal",
-    outputs: [],
-    stateMutability: "nonpayable",
-    type: "function",
-  },
-  {
-    inputs: [
-      {
-        internalType: "address",
-        name: "_user",
-        type: "address",
-      },
-    ],
-    name: "approveGoal",
-    outputs: [],
-    stateMutability: "nonpayable",
-    type: "function",
-  },
-  {
-    inputs: [],
-    name: "storedData",
-    outputs: [
-      {
-        internalType: "uint256",
-        name: "",
-        type: "uint256",
-      },
-    ],
-    stateMutability: "view",
-    type: "function",
-  },
-];
+const contractAddress_JS = "0xCe758d0d731b069cD7Ed0aC25E4D4e9F003f0A6c";
 
 const contractDefined_JS = new ethers.Contract(
   contractAddress_JS,
@@ -80,36 +17,36 @@ const contractDefined_JS = new ethers.Contract(
   provider
 );
 
-document.getElementById("setGoalButton").addEventListener("click", async () => {
-  const description = document.getElementById("goalDescription").value;
-  const deadline =
-    new Date(document.getElementById("goalDeadline").value).getTime() / 1000;
-  const validator = document.getElementById("goalValidator").value;
-  const amount = document.getElementById("goalAmount").value;
+// document.getElementById("setGoalButton").addEventListener("click", async () => {
+//   const description = document.getElementById("goalDescription").value;
+//   const deadline =
+//     new Date(document.getElementById("goalDeadline").value).getTime() / 1000;
+//   const validator = document.getElementById("goalValidator").value;
+//   const amount = document.getElementById("goalAmount").value;
+// console.log('sdfsdf')
+//   if (!description || !deadline || !validator || !amount) {
+//     alert("Please fill all fields");
+//     return;
+//   }
 
-  if (!description || !deadline || !validator || !amount) {
-    alert("Please fill all fields");
-    return;
-  }
+//   const signer = provider.getSigner();
+//   const contractWithSigner = contractDefined_JS.connect(signer);
 
-  const signer = provider.getSigner();
-  const contractWithSigner = contractDefined_JS.connect(signer);
-
-  try {
-    const tx = await contractWithSigner.setGoal(
-      description,
-      deadline,
-      validator,
-      { value: ethers.utils.parseEther(amount) }
-    );
-    await tx.wait();
-    alert("Goal set successfully");
-    generateAutomatedMessage(description, validator);
-  } catch (error) {
-    console.error(error);
-    alert("Error setting goal");
-  }
-});
+//   try {
+//     const tx = await contractWithSigner.setGoal(
+//       description,
+//       deadline,
+//       validator,
+//       { value: ethers.utils.parseEther(amount) }
+//     );
+//     await tx.wait();
+//     alert("Goal set successfully");
+//     generateAutomatedMessage(description, validator);
+//   } catch (error) {
+//     console.error(error);
+//     alert("Error setting goal");
+//   }
+// });
 
 document
   .getElementById("completeGoalButton")
