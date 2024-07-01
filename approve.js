@@ -106,7 +106,7 @@ function validateGoal(goalId, isCompleted) {
    
     try {
       console.log('yes')
-      const tx = contractWithSigner.approveGoal(owner_address, goalId);
+      const tx = contractWithSigner.approveGoal(owner_address, 0);
       alert("Goal marked as completed");
     } catch (error) {
       console.error(error);
@@ -120,7 +120,7 @@ function validateGoal(goalId, isCompleted) {
    
     try {
       console.log('No')
-      const tx = contractWithSigner.denyGoal(owner_address, goalId);
+      const tx = contractWithSigner.denyGoal(owner_address, 0);
       alert("Denied goal");
     } catch (error) {
       console.error(error);
