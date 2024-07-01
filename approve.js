@@ -43,7 +43,7 @@ async function fetchGoals() {
 
   goals.forEach(( goal) => {
 
-    console.log('goal:', goal, index)
+    // console.log('goal:', goal, index)
     const goalContainer = document.createElement("div");
     goalContainer.className = "goal";
 
