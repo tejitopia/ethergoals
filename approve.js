@@ -5,12 +5,14 @@ const goals = [
     description: "Goal 1",
     amount: "0.5",
     deadline: "2024-06-30T18:30:00Z",
+    charity: "Charity A",
   },
   {
     id: 2,
     description: "Goal 2",
     amount: "1.0",
     deadline: "2024-07-15T12:00:00Z",
+    charity: "DAO B",
   },
 ];
 
@@ -26,11 +28,15 @@ function fetchGoals() {
     goalHeader.textContent = goal.description;
     goalContainer.appendChild(goalHeader);
 
-    const goalDetails = document.createElement("p");
-    goalDetails.textContent = `Amount Staked: ${
-      goal.amount
-    } ETH\nCompletion Date: ${new Date(goal.deadline).toLocaleString()}`;
-    goalContainer.appendChild(goalDetails);
+    const goalDetailsAmount = document.createElement("p");
+    goalDetailsAmount.textContent = `Amount Staked: ${goal.amount} ETH`;
+    goalContainer.appendChild(goalDetailsAmount);
+
+    const goalDetailsDeadline = document.createElement("p");
+    goalDetailsDeadline.textContent = `Deadline: ${new Date(
+      goal.deadline
+    ).toLocaleString()}`;
+    goalContainer.appendChild(goalDetailsDeadline);
 
     const goalQuestion = document.createElement("p");
     goalQuestion.textContent = "Has your friend completed their goal?";
@@ -51,6 +57,12 @@ function fetchGoals() {
     declineButton.onclick = () => validateGoal(goal.id, false);
     buttonContainer.appendChild(declineButton);
 
+    const supportButton = document.createElement("button");
+    supportButton.className = "btn buttonHighContrast";
+    supportButton.textContent = "Support";
+    supportButton.onclick = () => supportGoal(goal.id);
+    buttonContainer.appendChild(supportButton);
+
     goalContainer.appendChild(buttonContainer);
     goalsList.appendChild(goalContainer);
   });
@@ -59,6 +71,11 @@ function fetchGoals() {
 function validateGoal(goalId, isCompleted) {
   // Implement goal validation logic here
   console.log(`Goal ${goalId} completed: ${isCompleted}`);
+}
+
+function supportGoal(goalId) {
+  // Implement goal support logic here
+  console.log(`Supporting goal ${goalId}`);
 }
 
 document
